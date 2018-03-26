@@ -6,11 +6,12 @@
 /*   By: pfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/25 14:51:06 by pfu               #+#    #+#             */
-/*   Updated: 2018/03/25 23:53:55 by pfu              ###   ########.fr       */
+/*   Updated: 2018/03/25 18:22:00 by pfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "fun/ft.h"
+#include <unistd.h>
 
 void	print_nbr(int a)
 {
@@ -19,22 +20,6 @@ void	print_nbr(int a)
 	b = a + '0';
 	write(1, &b, 1);
 }
-
-void    check_mutiple(char **argv, int **num, int x, int y, int *t)
-{
-	int     i;
-
-	if (argv[x][y] == '.')
-		num[x][y] = 0;
-	else if (argv[x][y] > '0' && argv[x][y] <= '9')
-	{
-		*t = *t + 1;
-		num[x][y] = argv[x][y] - '0';
-	}
-	else
-		return ;
-}
-
 
 int		check_ans(int **num, int x, int y, int testans)
 {

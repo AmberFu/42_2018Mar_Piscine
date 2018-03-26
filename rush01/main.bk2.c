@@ -6,12 +6,15 @@
 /*   By: pfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:11:09 by pfu               #+#    #+#             */
-/*   Updated: 2018/03/25 23:50:19 by pfu              ###   ########.fr       */
+/*   Updated: 2018/03/25 18:11:22 by pfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
 #include <stdio.h>
+#include "fun/ft.h"
+
+void	print_nbr(int a);
+int		sudoku_solve(int **num, int n);
 
 int		is_legal(char c)
 {
@@ -38,11 +41,9 @@ int		**getnumber(char **argv)
 {
 	int		x;
 	int		y;
-	int		t;
 	int		**num;
 
 	x = 0;
-	t = 0;
 	num = (int **)malloc(sizeof(int *) * 9 + 1);
 	while (x < 9)
 	{
@@ -52,13 +53,16 @@ int		**getnumber(char **argv)
 		y = 0;
 		while (y < 9)
 		{
-			check_mutiple(argv, num, x, y, &t);
+			if (argv[x][y] == '.')
+				num[x][y] = 0;
+			else if (argv[x][y] > '0' && argv[x][y] <= '9')
+				num[x][y] = argv[x][y] - '0';
+			else
+				return (0);
 			y++;
 		}
 		x++;
 	}
-	if (t < 17)
-		return (0);
 	return (num);
 }
 
@@ -75,13 +79,8 @@ void	display_num_array(int **num)
 		while (y < 9)
 		{
 			c = num[x][y] + '0';
-			if (y == 8)
-				write(1, &c, 1);
-			else
-			{
-				write(1, &c, 1);
-				ft_putchar(' ');
-			}
+			write(1, &c, 1);
+			ft_putchar(' ');
 			y++;
 		}
 		ft_putchar('\n');
@@ -105,6 +104,5 @@ int		main(int argc, char **argv)
 		display_num_array(num);
 	else
 		write(1, "Error\n", 6);
-	free(num);
 	return (0);
 }
