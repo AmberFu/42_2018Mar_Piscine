@@ -1,0 +1,27 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    subject.en.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pfu <marvin@42.fr>                         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/04/05 22:50:01 by pfu               #+#    #+#              #
+#    Updated: 2018/04/05 22:54:56 by pfu              ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Assignment name  : max
+Expected files   : max.c
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Write the following function:
+
+int		max(int* tab, unsigned int len);
+
+The first parameter is an array of int, the second is the number of elements in
+the array.
+
+The function returns the largest number found in the array.
+
+If the array is empty, the function returns 0.
