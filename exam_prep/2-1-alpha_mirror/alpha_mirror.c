@@ -6,7 +6,7 @@
 /*   By: pfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 21:44:54 by pfu               #+#    #+#             */
-/*   Updated: 2018/04/05 22:41:40 by pfu              ###   ########.fr       */
+/*   Updated: 2018/04/05 22:46:58 by pfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	alpha_mirror(char *str)
 	while (*str)
 	{
 		if (*str >= 'a' && *str <= 'z')
-			*str = 'a' + 'z' - *str;
+			*str = 'z' - *str + 'a';
 		else if (*str >= 'A' && *str <= 'Z')
-			*str = 'A' + 'Z' - *str;
+			*str = 'Z' - *str + 'A';
 		ft_putchar(*str);
 		str++;
 	}
